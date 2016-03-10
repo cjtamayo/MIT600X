@@ -182,6 +182,19 @@ def isValidWord(word, hand, wordList):
     wordList: list of lowercase strings
     """
     # TO DO ... <-- Remove this comment when you code this function
+    newp = word
+    words = ''
+    if word not in wordList:
+        return False
+    for key in hand:
+        words += key*hand[key]
+    for i in newp:
+        for j in words:
+            if i == j:
+                newp = newp.replace(i, '', 1)
+                words = words.replace(j, '', 1)
+    return newp == ''
+
 
 
 #
