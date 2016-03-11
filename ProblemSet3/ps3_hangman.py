@@ -134,13 +134,11 @@ def hangman(secretWord):
                 print ('Oops! That letter is not in my word: ' + getGuessedWord(secretWord, lettersGuessed))
                 numguess -= 1
             if isWordGuessed(secretWord, lettersGuessed):
-                print ('-------------')
-                break
+                numguess = 0
         else:
             print ("Oops! You've already guessed that letter:" + getGuessedWord(secretWord, lettersGuessed))
         print ('-------------')
-        #if isWordGuessed(secretWord, lettersGuessed):
-            #break
+
     if isWordGuessed(secretWord, lettersGuessed):
         return ('Congratulations, you won!')
     else:
@@ -156,5 +154,5 @@ def hangman(secretWord):
 # secretWord while you're testing)
 
 # secretWord = chooseWord(wordlist).lower()
-secretWord = 'sea'
-hangman(secretWord)
+#secretWord = 'sea'
+#hangman(secretWord)
