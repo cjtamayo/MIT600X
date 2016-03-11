@@ -348,4 +348,4 @@ if __name__ == '__main__':
 wordList = loadWords()
 #playHand({'w':1, 's':1, 't':2, 'a':1, 'o':1, 'f':1}, wordList, 7)
 #playHand({'n':1, 'e':1, 't':1, 'a':1, 'r':1, 'i':2}, wordList, 7)
-playGame(wordList)
+#playGame(wordList)
