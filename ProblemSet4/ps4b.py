@@ -24,23 +24,29 @@ def compChooseWord(hand, wordList, n):
     returns: string or None
     """
     # BEGIN PSEUDOCODE <-- Remove this comment when you code this function; do your coding within the pseudocode (leaving those comments in-place!)
-    # Create a new variable to store the maximum score seen so far (initially 0)
+    topscore = 0
 
-    # Create a new variable to store the best word seen so far (initially None)  
+    topword = None
 
-    # For each word in the wordList
+    for word in wordList:
 
-        # If you can construct the word from your hand
-        # (hint: you can use isValidWord, or - since you don't really need to test if the word is in the wordList - you can make a similar function that omits that test)
+        words = ''
+        newp = word
+        for key in hand:
+            words += key*hand[key]
+        for i in newp:
+            for j in words:
+                if i == j:
+                    newp = newp.replace(i, '', 1)
+                    words = words.replace(j, '', 1)
 
-            # Find out how much making that word is worth
+        if newp == '':
+            x = getWordScore(word, n)
+            if x > topscore:
+                topscore = x
+                topword = word
 
-            # If the score for that word is higher than your best score
-
-                # Update your best score, and best word accordingly
-
-
-    # return the best word you found.
+    return topword
 
 
 #
@@ -65,7 +71,22 @@ def compPlayHand(hand, wordList, n):
     wordList: list (string)
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    score = 0
+    while calculateHandlen(hand) > 0:
+        print
+        print 'Current Hand: ',
+        displayHand(hand)
+        word = compChooseWord(hand, wordList, n)
+        if word != None:
+            score += getWordScore(word, n)
+            print '"' + word +'"' + ' earned ' + str(getWordScore(word, n)) + ' points. Total: ' + str(score) + ' points'
+            hand = updateHand(hand, word)
+        else:
+            break
+    print
+    print 'Total score: ' + str(score) + ' points. '
+
+
     
 #
 # Problem #8: Playing a game
@@ -106,4 +127,6 @@ if __name__ == '__main__':
     wordList = loadWords()
     playGame(wordList)
 
-
+#print compPlayHand({'a': 1, 'p': 2, 's': 1, 'e': 1, 'l': 1}, wordList, 6)
+#print compPlayHand({'a': 2, 'c': 1, 'b': 1, 't': 1}, wordList, 5)
+print compPlayHand({'a': 2, 'e': 2, 'i': 2, 'm': 2, 'n': 2, 't': 2}, wordList, 12)
