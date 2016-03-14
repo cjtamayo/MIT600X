@@ -1,7 +1,6 @@
 from ps4a import *
 import time
 
-
 #
 #
 # Problem #6: Computer chooses a word
@@ -146,7 +145,6 @@ def playGame(wordList):
             compPlayHand(hand, wordList, HAND_SIZE)
         else:
             print 'Invalid Command'
-
 
         
 #
