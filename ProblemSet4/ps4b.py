@@ -155,7 +155,3 @@ def playGame(wordList):
 if __name__ == '__main__':
     wordList = loadWords()
     playGame(wordList)
-
-#print compPlayHand({'a': 1, 'p': 2, 's': 1, 'e': 1, 'l': 1}, wordList, 6)
-#print compPlayHand({'a': 2, 'c': 1, 'b': 1, 't': 1}, wordList, 5)
-print playGame(wordList)
