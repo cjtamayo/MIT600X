@@ -117,7 +117,36 @@ def playGame(wordList):
     wordList: list (string)
     """
     # TO DO... <-- Remove this comment when you code this function
-    print "playGame not yet implemented." # <-- Remove this when you code this function
+    #print "playGame not yet implemented." # <-- Remove this when you code this function
+
+    handcount = 0
+    choice = ''
+    hand = {}
+
+    while choice != 'e':
+        print
+        choice = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game:')
+        if choice == 'e':
+            break
+        if choice == 'n':
+            handcount += 1
+            hand = dealHand(HAND_SIZE)
+        elif choice == 'r':
+            if handcount < 1:
+                print 'You have not played a hand yet. Please play a new hand first!'
+                print
+                continue
+        else:
+            print 'Invalid Command'
+
+        choicePlay = raw_input('Enter u to have yourself play, c to have the computer play: ')
+        if choicePlay == 'u':
+            playHand(hand, wordList, HAND_SIZE)
+        elif choicePlay == 'c':
+            compPlayHand(hand, wordList, HAND_SIZE)
+        else:
+            print 'Invalid Command'
+
 
         
 #
@@ -129,4 +158,4 @@ if __name__ == '__main__':
 
 #print compPlayHand({'a': 1, 'p': 2, 's': 1, 'e': 1, 'l': 1}, wordList, 6)
 #print compPlayHand({'a': 2, 'c': 1, 'b': 1, 't': 1}, wordList, 5)
-print compPlayHand({'a': 2, 'e': 2, 'i': 2, 'm': 2, 'n': 2, 't': 2}, wordList, 12)
+print playGame(wordList)

@@ -341,7 +341,8 @@ def playGame(wordList):
 #
 # Build data structures used for entire session and play game
 #
-if __name__ == '__main__':
+if __na
+    me__ == '__main__':
     wordList = loadWords()
     playGame(wordList)
 
