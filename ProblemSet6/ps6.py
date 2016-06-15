@@ -259,10 +259,6 @@ def decrypt_story(story):
     story_string = CiphertextMessage(story)
     return story_string.decrypt_message()
 
-print decrypt_story(joke)
-
-
-
 
 #Example test case (PlaintextMessage)
 plaintext = PlaintextMessage('hello', 2)
