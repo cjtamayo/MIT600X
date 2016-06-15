@@ -254,6 +254,14 @@ class CiphertextMessage(Message):
 
 
 
+def decrypt_story(story):
+    story = get_story_string()
+    story_string = CiphertextMessage(story)
+    return story_string.decrypt_message()
+
+print decrypt_story(joke)
+
+
 
 
 #Example test case (PlaintextMessage)
